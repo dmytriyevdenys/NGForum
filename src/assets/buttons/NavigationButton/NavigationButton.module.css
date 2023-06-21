@@ -1,0 +1,25 @@
+.button {
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  padding: 0;
+  border-radius: 8px;
+
+}
+
+.button:hover {
+  background:#2C353D;
+  transform: scale(1.08);
+}
+
+
+
+.icon {
+  width: 24px;
+  height: 24px;
+  transition: all 0.2s ease-in-out;
+
+}

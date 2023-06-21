@@ -1,0 +1,91 @@
+@import '../../../../defaults.scss' ;
+
+.profileContainer {
+  position: relative;
+}
+
+.profileInfo {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  color: #F7F7F7;
+  cursor: pointer;
+}
+
+.profileImg {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+}
+
+.profileName {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.dropdownContent {
+  list-style-type: none;
+  position: absolute;
+  top: 10px;
+  left: 0px;
+  background: $color-body;
+  border: 1px solid #5a5959;
+  border-radius: $border-radius;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+
+}
+
+ .dropdownContent {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: max-content;  
+  padding: 0;
+ 
+}
+
+.dropdownContent li { 
+ width: 100%;
+ margin: -5px 0 -5px 0;
+
+  &:nth-child(1) {
+    margin-top: 10px;
+  }
+}
+
+.dropdownContent button {
+ width: 100%;
+ padding: 15px;
+ text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  background: none;
+  cursor: pointer;
+  color: #fff;
+
+  &:last-child { 
+    margin-bottom: 10px;
+ 
+  }
+    &:last-child::before { 
+      content: "";
+      position: absolute;
+      top: 82%;
+      right: 85%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      background-image: url(https://w7.pngwing.com/pngs/857/381/png-transparent-computer-icons-login-logout-angle-text-black-thumbnail.png);
+      background-size: cover;
+    }
+}
+
+
+
+.dropdownContent button:hover {
+  background: $color-input-icons;
+  color: #fff;
+}

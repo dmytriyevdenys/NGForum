@@ -1,0 +1,10 @@
+@import "../../defaults.scss" ; 
+
+.navbar { 
+    grid-area: navbar;
+    background-color: $color-blocks;
+    color: $color-font-secondary;
+    border-radius: $border-radius;
+    max-height: 25rem;
+    
+}

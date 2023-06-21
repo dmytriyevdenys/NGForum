@@ -1,0 +1,13 @@
+@import "../../defaults.scss" ; 
+
+.header { 
+    grid-area: header ;
+    background-color: $color-blocks ;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    color: $color-active-buttons;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: $border-radius;
+  }

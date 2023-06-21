@@ -1,0 +1,8 @@
+export const PROFILE_ROUTE = '/profile'
+export const LOGIN_ROUTE = '/login'
+export const REGISTRATION_ROUTE = '/registration'
+export const HOME_ROUTE = '/home'
+export const POST_PAGE_ROUTE = '/post'
+export const USERS_PAGE_ROUTE = '/users'
+export const MESSEGES_ROUTE = '/messages'
+export const CREATE_POST_ROURE = '/create_post'

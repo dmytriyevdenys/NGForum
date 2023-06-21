@@ -1,0 +1,99 @@
+@import "../../../defaults.scss";
+
+.container {
+    font-family: $font-primary;
+    margin: 40px -15px -15px;
+    width: 100%;
+    padding: 15px;
+    border-radius: $border-radius;
+    background: $color-blocks;
+    display: flex;
+    gap: 20px;
+
+    .image_block {
+        flex: 0 1 250px;
+        height: 200px;
+        
+        img {
+            width: 100%;
+            height: 100%;
+            max-width: 200px;
+            max-height: 200px;
+            border-radius: $border-radius;
+       
+        }
+    }
+
+    .body {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        .body_title {
+
+            display: flex;
+            flex-direction: column;
+            flex: 1 1 auto;
+
+            .body_text {
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+                gap: 10px;
+
+                .body_title_text {
+                    cursor: pointer;
+                    font-size: 25px;
+                    line-height: 33px;
+
+                }
+
+                .body_like_icon {
+                    margin: 0 0 0 7rem;
+                    cursor: pointer;
+                    fill: #686A70;
+
+                    &:active {
+                        fill: $color-active-buttons;
+                        transform: scale(0.9);
+                    }
+                }
+
+            }
+
+            .tags_body {
+              
+                display: flex;
+                gap: 10px;
+
+                .tag {
+                    margin: 15px 0 0 0;
+                    padding: 10px;
+                    font-size: 13px;
+                    border-radius: $border-radius;
+                    width: max-content;
+                    background: $color-input-icons;
+                    color: #C5D0E6;
+                }
+            }
+
+        }
+
+        .info {
+            padding-bottom: 15px;
+            display: flex;
+            justify-content: space-around;
+
+            .info_item {
+                color: #C5D0E6;
+                cursor: pointer;
+                font-size: 20px;
+                
+            }
+        }
+    }
+ 
+}
+
+.full_width {
+    flex: 1;
+  }

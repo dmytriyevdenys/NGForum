@@ -1,0 +1,153 @@
+@import '../../defaults.scss';
+
+.container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+
+    .authButtons {
+        margin: 80px 0 100px 40px;
+        display: flex;
+        gap: 20px;
+        font-size: 20px;
+        
+
+        &>div {
+            cursor: pointer;
+        }
+    }
+
+    .authButton{
+        text-decoration: none;
+        color: #848890;
+     
+    }
+
+    .activeButton {
+        position: relative;
+        text-decoration: none;
+        color: $color-font-primary;
+
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: $color-active-buttons;
+        }
+    }
+}
+
+.form {
+    margin-top: 20px;
+    box-sizing: border-box;
+    height: 600px;
+    width: 400px;
+    background: $color-blocks;
+
+
+    .formBlock {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        border-radius: $border-radius;
+    }
+
+    .input {
+        width: 80%;
+
+        input {
+            border-radius: 10px;
+            font-size: 14px;
+            width: 100%;
+            height: 40px;
+            color: $color-font-primary;
+            background: $color-input-icons;
+            border: none;
+            outline: none;
+            text-indent: 3%;
+
+
+                &:focus {
+                    box-shadow: $box-shadow-input;
+                }
+        }
+    }
+
+    .button {
+        margin-top: 10px;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        width: 80%;
+        height: 40px;
+        background: $color-active-buttons;
+        color: $color-font-primary;
+        text-transform: uppercase;
+        font-size: 18px;
+        border-radius: 10px;
+    
+
+        &:active {
+            transform: scale(0.98);
+        }
+    }
+
+    .checkbox {
+
+        width: 80%;
+        margin-bottom: 4px;
+
+        input[type="checkbox"] {
+            opacity: 0;
+            position: absolute;
+
+            &+label {
+                position: relative;
+                padding-left: 30px;
+                cursor: pointer;
+                font-size: 15px;
+                font-style: italic;
+                color: $color-font-primary;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    top: 0px;
+                    width: 20px;
+                    height: 20px;
+                    border: 1px solid #999;
+                    background-color: $color-font-primary;
+                    border-radius: 5px;
+                }
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    left: 7px;
+                    top: 4px;
+                    width: 6px;
+                    height: 10px;
+                    border: solid black;
+                    border-width: 0 2px 2px 0;
+                    transform: rotate(45deg);
+                    opacity: 0;
+                }
+            }
+
+            &:checked+label::before {
+                content: "✓";
+
+            }
+
+            &:checked+label::after {
+                opacity: 1;
+            }
+        }
+    }
+}
