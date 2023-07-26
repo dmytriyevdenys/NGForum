@@ -1,4 +1,4 @@
-import App from "./App"
+
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { AccesToken } from "./redux/authSlice";
@@ -11,15 +11,16 @@ const dispatch = useDispatch()
 
 useEffect(() => { 
 
-    dispatch(AccesToken())
+   
+        dispatch(AccesToken());
+
 
 }, [dispatch])
 
     return (
         <>
         <RouterProvider router={router} /> 
-        </>
-       
+        </>       
     )
 }
 

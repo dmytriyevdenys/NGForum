@@ -22,15 +22,10 @@
 
     .site-content {
       grid-area: content;
-    
       padding: 20px;
       box-sizing: border-box;
       color: $color-font-primary;
       border-radius: $border-radius;
-      display: flex;
-      align-items: center;
-      justify-content: space-evenly;
-      flex-wrap: wrap;
 
     } 
      

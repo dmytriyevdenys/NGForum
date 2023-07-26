@@ -4,7 +4,6 @@ import { useDispatch } from "react-redux";
 import { Login, SetNewAccount } from "../../redux/authSlice";
 import { NavLink, useLocation } from "react-router-dom";
 import { LOGIN_ROUTE, REGISTRATION_ROUTE } from "./../../utils/consts";
-
 import style from "./LoginForm.module.scss";
 
 const AuthButtons = React.memo(({ handleFormToggle }) => {

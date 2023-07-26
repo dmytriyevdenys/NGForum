@@ -9,19 +9,19 @@ export const CreatePostSmall = () => {
   return (
     <div className={style.container}>
         <div>
-        <img 
-        src={userAvatar}
-        alt="avatar"
-      />
+          <img 
+            src={userAvatar}
+            alt="avatar"
+          />
         </div>
-      <div >
-        <NavLink to={CREATE_POST_ROURE}>
-        <input type="text" placeholder="Let's share what going on your mind..." className={style.input}/>
-        </NavLink>
-      </div>
-      <div >
-        <input type="button" value="Create Post"className={style.button} />
-      </div>
+        <div className={style.containerInput}>
+          <NavLink to={CREATE_POST_ROURE} className={style.input}>
+            <input type="text" placeholder="Let's share what's going on your mind..." className={style.input}/>
+          </NavLink>
+        </div>
+        <div >
+          <input type="button" value="Create Post" className={style.button} />
+        </div>
     </div>
   );
 };

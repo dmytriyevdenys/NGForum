@@ -5,7 +5,6 @@ import { refreshToken } from "./api/api";
 
 export const Login = createAsyncThunk('login/Login', async (data) => {
     const response = await authApi.getToken(data);
-    console.log(response);
     const { access, refresh } = response
     Cookies.set('accessToken', access, );
     Cookies.set('refreshToken', refresh, );
@@ -18,8 +17,8 @@ export const AccesToken = createAsyncThunk('login/AccesToken', async () => {
      if (response) { 
         return response
      }
-
-     return null
+        return null
+     
 })
 
 export const SetNewAccount = createAsyncThunk('login/SetNewAccount', async (data) => {
@@ -34,7 +33,7 @@ const authSlice = createSlice({
       authUser:[],
       isAuth:false,
     loading: false,
-    error: null,
+    error: false,
     },
 
     reducers: {
@@ -72,6 +71,13 @@ const authSlice = createSlice({
             state.authUser = action.payload.user
             state.isAuth = true
         }
+    
+        })
+
+        builder.addCase(AccesToken.rejected, (state, action) => {
+            if (action.error.message === '401') {
+             state.error = true
+            }
         })
     }
     

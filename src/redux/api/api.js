@@ -9,33 +9,63 @@ export const axiosInstance = axios.create({
   }
 });
 
+axiosInstance.interceptors.request.use(
+  async (config) => {
+    const accessToken = Cookies.get('accessToken');
+    if (accessToken) {
+      config.headers['Authorization'] = `Bearer ${accessToken}`;
+    }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
+
 export const refreshToken = async () => {
   const refreshToken = Cookies.get('refreshToken');
 
   if (refreshToken) {
-    const response = await axiosInstance.post('/token/refresh',{ refresh: refreshToken });
-    const { access } = response.data;
-    Cookies.set('accessToken', access);
-   
-    return response.data;
+    try {
+      const response = await axiosInstance.post('/token/refresh', { refresh: refreshToken });
+      const { access } = response.data;
+      Cookies.set('accessToken', access);
+      return response.data;
+    } catch (error) {
+      if (error.response && error.response.status === 401) {
+        Cookies.remove('refreshToken');
+      }
+      console.error(error);
+      throw error;
+    }
   }
-    return null
+
+  return null;
 };
+
 
 
 axiosInstance.interceptors.response.use(
   (response) => response,
   async (error) => {
     const originalRequest = error.config;
-
     if (
-      error.response && error.response.status === 401 && !originalRequest._retry && originalRequest.headers['Authorization'] !== undefined
+      error.response &&
+      error.response.status === 401 &&
+      !originalRequest._retry &&
+      originalRequest.headers['Authorization'].includes('Bearer ')
     ) {
-      try {
-        const accessToken = await refreshToken();
-        originalRequest.headers['Authorization'] = `Bearer ${accessToken}`;
+      originalRequest._retry = true; 
 
-        return axiosInstance(originalRequest);
+      try {
+        const refreshToken = Cookies.get('refreshToken');
+        if (refreshToken) {
+          const accessToken = await refreshToken();
+          originalRequest.headers['Authorization'] = `Bearer ${accessToken}`;
+  
+          return axiosInstance(originalRequest);
+        }
+       
       } catch (refreshError) {
         console.error(refreshError);
         throw refreshError;
@@ -45,4 +75,5 @@ axiosInstance.interceptors.response.use(
     return Promise.reject(error);
   }
 );
+
 

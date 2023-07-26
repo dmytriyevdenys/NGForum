@@ -24,7 +24,7 @@ class AuthApi {
   async setAccount (data) { 
     try { 
       const responce = await this.instance.post('accounts',data)
-      return responce.data
+       return responce.data
     }
 
     catch (error) { 

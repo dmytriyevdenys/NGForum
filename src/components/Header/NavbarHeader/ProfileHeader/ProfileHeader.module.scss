@@ -33,7 +33,7 @@
   border-radius: $border-radius;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-
+  z-index: 1;
 }
 
  .dropdownContent {
@@ -61,7 +61,6 @@
   font-size: 14px;
   font-weight: bold;
   border: none;
-  border-radius: 5px;
   background: none;
   cursor: pointer;
   color: #fff;
@@ -70,21 +69,8 @@
     margin-bottom: 10px;
  
   }
-    &:last-child::before { 
-      content: "";
-      position: absolute;
-      top: 82%;
-      right: 85%;
-      transform: translateY(-50%);
-      width: 20px;
-      height: 20px;
-      background-image: url(https://w7.pngwing.com/pngs/857/381/png-transparent-computer-icons-login-logout-angle-text-black-thumbnail.png);
-      background-size: cover;
-    }
+
 }
-
-
-
 .dropdownContent button:hover {
   background: $color-input-icons;
   color: #fff;

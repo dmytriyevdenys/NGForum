@@ -1,0 +1,1 @@
+export const activeLink = ({ isActive }) => (isActive ? style.active : style.item);

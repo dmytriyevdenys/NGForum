@@ -3,7 +3,9 @@ import s from "./ProfileHeader.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { Logout } from "../../../../redux/authSlice";
 import defaultAva from "../../../../assets/images/avatarDefoult.png"
-
+import iconLogaut from "../../../../assets/icons/logautIcon.png"
+import { NavLink } from "react-router-dom";
+import { PROFILE_ROUTE } from './../../../../utils/consts';
 
 const ProfileHeader = () => {
   const dispatch = useDispatch()
@@ -21,7 +23,6 @@ const ProfileHeader = () => {
   };
 
   const handleLogout = () => {
-    console.log('Вихід з облікового запису');
     dispatch(Logout())
   };
 
@@ -51,6 +52,13 @@ const ProfileHeader = () => {
       </div>
       {isOpen && (
         <ul className={s.dropdownContent} ref={dropdownRef}>
+
+          <li>
+            <NavLink to={PROFILE_ROUTE}>
+            <button onClick={toggleDropdown}>Мій профіль</button>  
+            </NavLink>
+           
+          </li>
       
           <li>
             <button>Налаштування</button>
@@ -59,7 +67,7 @@ const ProfileHeader = () => {
             <button >Змінити тему</button>
           </li>
           <li>
-            <button onClick={handleLogout}>Вийти з профілю</button>
+            <button onClick={handleLogout}> Вийти з профілю</button>
           </li>
         </ul>
       )}

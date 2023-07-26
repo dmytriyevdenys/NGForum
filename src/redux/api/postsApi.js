@@ -15,8 +15,25 @@ class PostApi {
             console.log(error);
             throw error;
         }
-       
     }
+
+    async setPost (data) {
+        try { 
+            const response = await this.instance.post('questions', data, { 
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            
+            })
+            const result = response.data
+            return result
+        }
+
+        catch(error) { 
+            console.log(error);
+            throw error;
+        }
+       }  
 }
 
 export const postAPi = new PostApi()

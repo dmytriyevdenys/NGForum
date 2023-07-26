@@ -8,7 +8,6 @@ const Home = () => {
   const dispatch = useDispatch();
   const posts = useSelector(state => state.posts.posts);
   const loading = useSelector(state => state.posts.loading)
- 
   useEffect(() => { 
 
     dispatch(getPosts());
@@ -22,7 +21,7 @@ const Home = () => {
       <div>Завантаження</div>
     ) : (
       <>  
-        {posts.map(post => (
+        {posts && posts.map(post => (
           <PostSmall 
           key={post.id}
           title={post.title}
